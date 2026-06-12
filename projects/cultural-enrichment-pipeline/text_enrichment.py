@@ -43,7 +43,7 @@ class TextEnrichmentPipeline:
                 if self.ner_pipeline is None:
                     # Use simple aggregation strategy to automatically merge B-/I- subword tokens
                     self.ner_pipeline = pipeline(
-                        "ner", 
+                        "token-classification", 
                         model="dslim/bert-base-NER", 
                         aggregation_strategy="simple"
                     )
@@ -99,7 +99,7 @@ class TextEnrichmentPipeline:
             try:
                 if self.sentiment_pipeline is None:
                     self.sentiment_pipeline = pipeline(
-                        "sentiment-analysis", 
+                        "text-classification", 
                         model="cardiffnlp/twitter-roberta-base-sentiment-latest"
                     )
                 res = self.sentiment_pipeline(text)[0]
