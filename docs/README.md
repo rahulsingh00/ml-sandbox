@@ -21,6 +21,14 @@
 
 ---
 
+## 🛠️ Build & Quality Pipelines
+
+| Document | Description |
+|:---|:---|
+| **[CI/CD & Local Verification](ci-cd.md)** | Details of GitHub Actions workflows, manual triggers, and running verification suites locally. |
+
+---
+
 ## 🧠 Core Competency Guides
 
 Each guide provides a detailed conceptual walkthrough, mathematical formulation (where applicable), and links to practical implementations inside the sandbox.
