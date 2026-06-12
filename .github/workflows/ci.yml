@@ -1,0 +1,117 @@
+name: Sightly Sandbox CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  lint-and-typecheck:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install Linting Tools
+        run: |
+          python -m pip install --upgrade pip
+          pip install ruff mypy
+
+      - name: Run Ruff Linter
+        run: ruff check .
+
+      - name: Run mypy Type Checker
+        run: mypy --ignore-missing-imports projects/
+
+  test-cultural-enrichment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          # Install headless opencv to avoid GUI dependency errors on CI
+          pip install opencv-python-headless
+          pip install -r projects/cultural-enrichment-pipeline/requirements.txt
+          pip install pytest
+
+      - name: Run Tests
+        run: |
+          PYTHONPATH=projects/cultural-enrichment-pipeline python -m pytest projects/cultural-enrichment-pipeline/tests/ -v
+
+  test-ad-optimization:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r projects/ad-optimization-engine/requirements.txt
+          pip install pytest
+
+      - name: Run Tests
+        run: |
+          PYTHONPATH=projects/ad-optimization-engine python -m pytest projects/ad-optimization-engine/tests/ -v
+
+  test-causal-uplift:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r projects/causal-uplift-experimenter/requirements.txt
+          pip install pytest
+
+      - name: Run Tests
+        run: |
+          PYTHONPATH=projects/causal-uplift-experimenter python -m pytest projects/causal-uplift-experimenter/tests/ -v
+
+  test-mlops-infrastructure:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r projects/MLOps-serving-infrastructure/requirements.txt
+          pip install pytest httpx
+
+      - name: Run Tests
+        run: |
+          PYTHONPATH=projects/MLOps-serving-infrastructure python -m pytest projects/MLOps-serving-infrastructure/tests/ -v
