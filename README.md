@@ -17,15 +17,29 @@ The repository contains four distinct sub-projects, each modeling a core busines
 
 ---
 
-## 📚 Study Guide & Concept Roadmap
+## 📖 Documentation & Project Navigation Map
 
-To systematically master the theoretical and practical concepts, refer to our curated documentation guides in [`docs/`](file:///Users/rahulsingh/Work/ml-sandbox/docs):
+Use the index below to navigate all documentation guides, system reference manuals, and individual sub-project READMEs across the workspace:
 
-1. **[Cultural Data & NLP](file:///Users/rahulsingh/Work/ml-sandbox/docs/concepts/01-cultural-data-nlp.md)**: Stance detection, NER, embedding spaces, clustering, and brand safety.
-2. **[Multi-modal Enrichment](file:///Users/rahulsingh/Work/ml-sandbox/docs/concepts/02-multimodal-enrichment.md)**: Visual/Video signals, CLIP, frame embeddings, and multimodal classifiers.
-3. **[Ad Optimization Systems](file:///Users/rahulsingh/Work/ml-sandbox/docs/concepts/03-ad-optimization.md)**: Mathematical formulations, constraints, objective functions, and bidding policies.
-4. **[Causal Inference & Experimentation](file:///Users/rahulsingh/Work/ml-sandbox/docs/concepts/04-causal-uplift-ab.md)**: Power analysis, confounding variables, propensity score matching, and Uplift models (Metalearners).
-5. **[Production MLOps Engineering](file:///Users/rahulsingh/Work/ml-sandbox/docs/concepts/05-production-mlops.md)**: FastAPI async patterns, data/concept drift detection (KS-test, PSI), PostgreSQL schemas, and Dockerizing workloads.
+### 📐 System Reference & Architecture
+* 🧭 **[Docs Index README](docs/README.md)** — Core entry point for all study guides.
+* 📊 **[JD Gap Analysis](docs/gap-analysis.md)** — Breakdown of skills gap scorecard and implemented modules.
+* 🎨 **[System Architecture Overview](docs/architecture/overview.md)** — End-to-end system design, boundaries, and flows.
+* 🌳 **[Source Tree Map](docs/architecture/source-tree.md)** — Detailed map of files and folders mapping to JD skills.
+* 🚀 **[CI/CD & Local Verification Guide](docs/ci-cd.md)** — Guide to GitHub Actions settings and local CI verification script.
+
+### 🧠 Core Competency Study Guides
+* 📝 **[01. Cultural Data & NLP](docs/concepts/01-cultural-data-nlp.md)** — NER, stance, topic taxonomies, brand safety.
+* 🖼️ **[02. Multi-modal Enrichment](docs/concepts/02-multimodal-enrichment.md)** — CLIP image/video signal extraction, pooling.
+* 📈 **[03. Ad Optimization Systems](docs/concepts/03-ad-optimization.md)** — LP solvers, constraints, utility bidding policies.
+* 🔍 **[04. Causal Inference & A/B Testing](docs/concepts/04-causal-uplift-ab.md)** — Confounder controls, matching, A/B sizers, DML.
+* 🐳 **[05. Production MLOps Engineering](docs/concepts/05-production-mlops.md)** — FastAPI concurrency, drift detection (KS-test, PSI).
+
+### 🏗️ Sub-Project Readmes
+* 📡 **[Cultural Enrichment Pipeline Readme](projects/cultural-enrichment-pipeline/README.md)**
+* 💰 **[Ad Optimization Engine Readme](projects/ad-optimization-engine/README.md)**
+* 🧪 **[Causal Uplift Experimenter Readme](projects/causal-uplift-experimenter/README.md)**
+* 🎛️ **[MLOps Serving Infrastructure Readme](projects/MLOps-serving-infrastructure/README.md)**
 
 ---
 
