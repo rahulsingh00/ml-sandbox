@@ -28,6 +28,7 @@ Use the index below to navigate all documentation guides, system reference manua
 * 🎨 **[System Architecture Overview](docs/architecture/overview.md)** — End-to-end system design, boundaries, and flows.
 * 🌳 **[Source Tree Map](docs/architecture/source-tree.md)** — Detailed map of files and folders mapping to JD skills.
 * 🚀 **[CI/CD & Local Verification Guide](docs/ci-cd.md)** — Guide to GitHub Actions settings and local CI verification script.
+* 💾 **[Dataset & Simulators Guide](docs/datasets.md)** — Guide to synthetic generators, public benchmarks, and enterprise data connection stubs.
 
 ### 🧠 Core Competency Study Guides
 * 📝 **[01. Cultural Data & NLP](docs/concepts/01-cultural-data-nlp.md)** — NER, stance, topic taxonomies, brand safety.
