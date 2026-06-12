@@ -24,6 +24,7 @@ Use the index below to navigate all documentation guides, system reference manua
 ### 📐 System Reference & Architecture
 * 🧭 **[Docs Index README](docs/README.md)** — Core entry point for all study guides.
 * 📊 **[JD Gap Analysis](docs/gap-analysis.md)** — Breakdown of skills gap scorecard and implemented modules.
+* 📋 **[Agile Project Backlog](backlog.md)** — Epics, completed user stories, and future roadmap enhancements.
 * 🎨 **[System Architecture Overview](docs/architecture/overview.md)** — End-to-end system design, boundaries, and flows.
 * 🌳 **[Source Tree Map](docs/architecture/source-tree.md)** — Detailed map of files and folders mapping to JD skills.
 * 🚀 **[CI/CD & Local Verification Guide](docs/ci-cd.md)** — Guide to GitHub Actions settings and local CI verification script.
