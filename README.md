@@ -10,10 +10,10 @@ The repository contains four distinct sub-projects, each modeling a core busines
 
 | Sub-Project | Capability Modeled | Core Technologies |
 |:---|:---|:---|
-| **[`cultural-enrichment-pipeline`](file:///Users/rahulsingh/Work/ml-sandbox/projects/cultural-enrichment-pipeline)** | Cultural data pipelines (NER, Stance, Topic Classification, CLIP Multi-modal, Text Embeddings) | HuggingFace, PyTorch, CLIP, sentence-transformers, Scikit-Learn |
-| **[`ad-optimization-engine`](file:///Users/rahulsingh/Work/ml-sandbox/projects/ad-optimization-engine)** | Bid Optimization, Budget Allocation, Lookalike Audience Targeting, CTR Regression | SciPy Optimize, Scikit-Learn, Pandas, NumPy, Snowflake data connector |
-| **[`causal-uplift-experimenter`](file:///Users/rahulsingh/Work/ml-sandbox/projects/causal-uplift-experimenter)** | A/B Testing Instrumentation, Propensity Score Matching (PSM), Double Machine Learning (DML), Uplift Modeling | Statsmodels, Scikit-Learn, SciPy, Pandas, NumPy, Seaborn |
-| **[`MLOps-serving-infrastructure`](file:///Users/rahulsingh/Work/ml-sandbox/projects/MLOps-serving-infrastructure)** | High-throughput Async Serving, Evidently AI Drift Presets, PostgreSQL logging, Docker Compose | FastAPI, Docker, Evidently AI, PostgreSQL (asyncpg), Vertex AI, GCS |
+| **[`cultural-enrichment-pipeline`](projects/cultural-enrichment-pipeline/README.md)** | Cultural data pipelines (NER, Stance, Topic Classification, CLIP Multi-modal, Text Embeddings) | HuggingFace, PyTorch, CLIP, sentence-transformers, Scikit-Learn |
+| **[`ad-optimization-engine`](projects/ad-optimization-engine/README.md)** | Bid Optimization, Budget Allocation, Lookalike Audience Targeting, CTR Regression | SciPy Optimize, Scikit-Learn, Pandas, NumPy, Snowflake data connector |
+| **[`causal-uplift-experimenter`](projects/causal-uplift-experimenter/README.md)** | A/B Testing Instrumentation, Propensity Score Matching (PSM), Double Machine Learning (DML), Uplift Modeling | Statsmodels, Scikit-Learn, SciPy, Pandas, NumPy, Seaborn |
+| **[`MLOps-serving-infrastructure`](projects/MLOps-serving-infrastructure/README.md)** | High-throughput Async Serving, Evidently AI Drift Presets, PostgreSQL logging, Docker Compose | FastAPI, Docker, Evidently AI, PostgreSQL (asyncpg), Vertex AI, GCS |
 
 ---
 
@@ -36,12 +36,6 @@ Use the index below to navigate all documentation guides, system reference manua
 * 📈 **[03. Ad Optimization Systems](docs/concepts/03-ad-optimization.md)** — LP solvers, constraints, utility bidding policies.
 * 🔍 **[04. Causal Inference & A/B Testing](docs/concepts/04-causal-uplift-ab.md)** — Confounder controls, matching, A/B sizers, DML.
 * 🐳 **[05. Production MLOps Engineering](docs/concepts/05-production-mlops.md)** — FastAPI concurrency, drift detection (KS-test, PSI).
-
-### 🏗️ Sub-Project Readmes
-* 📡 **[Cultural Enrichment Pipeline Readme](projects/cultural-enrichment-pipeline/README.md)**
-* 💰 **[Ad Optimization Engine Readme](projects/ad-optimization-engine/README.md)**
-* 🧪 **[Causal Uplift Experimenter Readme](projects/causal-uplift-experimenter/README.md)**
-* 🎛️ **[MLOps Serving Infrastructure Readme](projects/MLOps-serving-infrastructure/README.md)**
 
 ---
 
