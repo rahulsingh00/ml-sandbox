@@ -1,0 +1,19 @@
+# Root requirements for the entire ML Sandbox & Dashboard
+numpy>=1.22.4
+pandas>=1.5.3
+scipy>=1.10.1
+scikit-learn>=1.2.2
+statsmodels>=0.13.5
+seaborn>=0.12.2
+matplotlib>=3.7.1
+torch>=2.0.0
+transformers>=4.28.1
+sentence-transformers>=2.2.2
+pillow>=9.5.0
+opencv-python-headless>=4.7.0.72
+asyncpg>=0.28.0
+evidently>=0.4.0
+streamlit>=1.22.0
+plotly>=5.14.0
+pytest>=7.3.1
+httpx>=0.24.0

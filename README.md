@@ -65,5 +65,24 @@ PYTHONPATH=projects/MLOps-serving-infrastructure python3 -m pytest projects/MLOp
 
 ## 🚀 Getting Started
 
-Ensure you have Python 3.9+ installed. To review the Sightly ML Engineering Lead gap analysis, see the global **[Gap Analysis Doc](file:///Users/rahulsingh/Work/ml-sandbox/docs/gap-analysis.md)**.
+1. **Install All Workspace Dependencies**:
+   Install all combined back-end and front-end dashboard dependencies in one command:
+   ```bash
+   pip3 install -r requirements.txt
+   ```
+
+2. **Launch the Interactive Streamlit Dashboard**:
+   Launch the interactive, multi-page web application to showcase the pipeline features:
+   ```bash
+   streamlit run dashboard/app.py
+   ```
+   This opens a web dashboard (typically at `http://localhost:8501`) presenting text enrichment models, CLIP image/video safety evaluators, budget LP optimization charts, and data drift dashboards.
+
+3. **Run Local CI Verification**:
+   Execute the linter, type-checker, and 31 unit tests in one command:
+   ```bash
+   ./run_ci_locally.sh
+   ```
+
+To review the Sightly ML Engineering Lead gap analysis, see the global **[Gap Analysis Doc](docs/gap-analysis.md)** and the **[Agile Project Backlog](backlog.md)**.
 

@@ -10,6 +10,7 @@
 |:---|:---|
 | **[System Architecture Overview](file:///Users/rahulsingh/.gemini/antigravity/scratch/ml-sandbox/docs/architecture/overview.md)** | End-to-end design, data pipelines, sub-project boundaries, and data flows. |
 | **[Source Tree Map](file:///Users/rahulsingh/.gemini/antigravity/scratch/ml-sandbox/docs/architecture/source-tree.md)** | Annotated workspace structure mapping files to specific job requirements. |
+| **[Dataset & Simulators Guide](datasets.md)** | How to generate mock data or download real-world public datasets for testing. |
 
 ---
 
@@ -18,6 +19,7 @@
 | Document | Description |
 |:---|:---|
 | **[Gap Analysis](gap-analysis.md)** | Detailed skills gap analysis against the [Sightly ML Engineering Lead](https://app.trinethire.com/companies/22914-sightly-enterprises-inc/jobs/121118-machine-learning-engineering-lead) job posting. Tracks what's implemented, what's partial/mocked, and what's missing — updated as implementations progress. |
+| **[Agile Project Backlog](../backlog.md)** | Epics, completed user stories, and future roadmap enhancements. |
 
 ---
 
