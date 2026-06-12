@@ -6,7 +6,6 @@ Propensity Score Matching (PSM), and Double Machine Learning (DML).
 
 import numpy as np
 import pandas as pd
-import pytest
 
 from stat_tests import ABTestEvaluator
 from power_calculator import ExperimentSizer

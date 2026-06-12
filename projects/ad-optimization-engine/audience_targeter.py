@@ -4,7 +4,7 @@ Implements KNN-based and classification-based lookalike modeling for audience ex
 Includes reach vs. precision tradeoff controls, exclusion lists, and frequency capping.
 """
 
-from typing import List, Dict, Any, Set
+from typing import List, Dict, Set, Optional
 import numpy as np
 import pandas as pd
 from sklearn.neighbors import NearestNeighbors
@@ -30,7 +30,7 @@ class AudienceTargeter:
         self.knn.fit(seed_profiles)
         
         # Classifier for logistic regression lookalike scoring
-        self.lookalike_classifier = None
+        self.lookalike_classifier: Optional[LogisticRegression] = None
         self.is_trained = False
         
         # Frequency caps and exclusions
@@ -78,7 +78,7 @@ class AudienceTargeter:
         Scores candidate users using the trained classification model.
         Returns lookalike probability in [0, 1].
         """
-        if not self.is_trained:
+        if not self.is_trained or self.lookalike_classifier is None:
             # Fall back to KNN scoring if classifier isn't trained
             return self.score_candidates_knn(candidate_profiles)
             

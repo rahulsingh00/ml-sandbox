@@ -4,7 +4,6 @@ Implements async endpoints for real-time bid scoring, serving,
 drift evaluation checks, and model management.
 """
 
-import os
 import uuid
 import logging
 import pickle

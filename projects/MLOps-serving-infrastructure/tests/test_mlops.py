@@ -7,7 +7,6 @@ import os
 import shutil
 import numpy as np
 import pandas as pd
-import pytest
 from fastapi.testclient import TestClient
 
 from main import app

@@ -4,7 +4,7 @@ Estimates treatment effects by matching treated and control units with similar p
 Includes covariate balance diagnostics (SMD) and treatment effect estimation (ATT, ATE).
 """
 
-from typing import List, Dict, Any, Tuple, Optional
+from typing import List, Dict, Tuple, Optional
 import numpy as np
 import pandas as pd
 from sklearn.linear_model import LogisticRegression
@@ -23,8 +23,8 @@ class PropensityMatcher:
         self.caliper_scale = caliper_scale
         self.propensity_model = LogisticRegression(solver="liblinear", random_state=42)
 
-        self.propensity_scores = None
-        self.matched_indices = None  # List of tuples: (treated_idx, control_idx)
+        self.propensity_scores: Optional[np.ndarray] = None
+        self.matched_indices: Optional[List[Tuple[int, int]]] = None  # List of tuples: (treated_idx, control_idx)
 
     def estimate_propensity_scores(self, X: pd.DataFrame, treatment: np.ndarray) -> np.ndarray:
         """
@@ -32,8 +32,9 @@ class PropensityMatcher:
         """
         self.propensity_model.fit(X, treatment)
         # Probability of being treated (class 1)
-        self.propensity_scores = self.propensity_model.predict_proba(X)[:, 1]
-        return self.propensity_scores
+        scores = self.propensity_model.predict_proba(X)[:, 1]
+        self.propensity_scores = scores
+        return scores
 
     def perform_matching(self, treatment: np.ndarray, caliper: Optional[float] = None) -> List[Tuple[int, int]]:
         """

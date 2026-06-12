@@ -6,7 +6,6 @@ audience targeting, and CTR regression.
 
 import numpy as np
 import pandas as pd
-import pytest
 
 from bid_optimizer import BidOptimizer
 from budget_allocator import BudgetAllocator

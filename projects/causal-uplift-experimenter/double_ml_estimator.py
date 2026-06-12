@@ -4,7 +4,7 @@ Implements DML for debiased treatment effects using K-fold cross-fitting.
 Features Neyman-orthogonal scores for estimating treatment effects (ATE/ATT) with confidence intervals.
 """
 
-from typing import Dict, Any, Tuple
+from typing import Dict, Any, Optional
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import KFold
@@ -27,11 +27,11 @@ class DoubleMLEstimator:
         self.random_state = random_state
         
         # Treatment effect estimate
-        self.ate = None
-        self.se = None
-        self.ci_lower = None
-        self.ci_upper = None
-        self.p_value = None
+        self.ate: Optional[float] = None
+        self.se: Optional[float] = None
+        self.ci_lower: Optional[float] = None
+        self.ci_upper: Optional[float] = None
+        self.p_value: Optional[float] = None
 
     def estimate_effect(
         self, 
@@ -99,34 +99,39 @@ class DoubleMLEstimator:
         if denominator == 0:
             raise ValueError("Treatment residuals have zero variance. Nuisance models may be overfitted.")
             
-        self.ate = np.dot(residuals_t, residuals_y) / denominator
+        ate = float(np.dot(residuals_t, residuals_y) / denominator)
+        self.ate = ate
         
         # Step 4: Asymptotic variance and standard error estimation
         # Score contribution: psi_i = (residuals_y_i - ATE * residuals_t_i) * residuals_t_i
-        scores = (residuals_y - self.ate * residuals_t) * residuals_t
+        scores = (residuals_y - ate * residuals_t) * residuals_t
         
         # J is the expected value of denominator (mean of treatment residuals squared)
         J = np.mean(residuals_t**2)
         
         # Variance of ATE is mean(scores^2) / (J^2 * n)
         variance = np.mean(scores**2) / (J**2 * n_samples)
-        self.se = np.sqrt(variance)
+        se = float(np.sqrt(variance))
+        self.se = se
         
         # Confidence intervals
-        z_crit = norm.ppf(0.975) # 95% confidence interval
-        self.ci_lower = self.ate - z_crit * self.se
-        self.ci_upper = self.ate + z_crit * self.se
+        z_crit = float(norm.ppf(0.975)) # 95% confidence interval
+        ci_lower = float(ate - z_crit * se)
+        ci_upper = float(ate + z_crit * se)
+        self.ci_lower = ci_lower
+        self.ci_upper = ci_upper
         
         # P-value calculation (two-sided)
-        z_stat = self.ate / self.se
-        self.p_value = 2.0 * (1.0 - norm.cdf(abs(z_stat)))
+        z_stat = float(ate / se)
+        p_value = float(2.0 * (1.0 - norm.cdf(abs(z_stat))))
+        self.p_value = p_value
         
         return {
-            "ate": float(self.ate),
-            "se": float(self.se),
-            "ci_lower": float(self.ci_lower),
-            "ci_upper": float(self.ci_upper),
-            "p_value": float(self.p_value)
+            "ate": ate,
+            "se": se,
+            "ci_lower": ci_lower,
+            "ci_upper": ci_upper,
+            "p_value": p_value
         }
 
 

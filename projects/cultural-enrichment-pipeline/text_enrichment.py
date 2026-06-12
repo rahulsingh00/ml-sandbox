@@ -5,7 +5,7 @@ stance detection, sentiment analysis, and brand safety filtering.
 """
 
 import re
-from typing import Dict, List, Any
+from typing import Dict, List, Any, Optional
 
 # Optional imports with heuristic fallbacks to ensure instant execution
 try:
@@ -186,7 +186,7 @@ class TextEnrichmentPipeline:
                 
         return "NEUTRAL"
 
-    def classify_topic(self, text: str, topics: List[str] = None) -> Dict[str, Any]:
+    def classify_topic(self, text: str, topics: Optional[List[str]] = None) -> Dict[str, Any]:
         """
         Classify the topic of the text against a taxonomy using Zero-Shot BART MNLI.
         """
@@ -225,7 +225,7 @@ class TextEnrichmentPipeline:
         for topic, keywords in topic_keywords.items():
             scores[topic] = sum(1 for kw in keywords if kw in text_lower)
             
-        primary = max(scores, key=scores.get) if any(scores.values()) else "Neutral"
+        primary = max(scores, key=lambda k: scores[k]) if any(scores.values()) else "Neutral"
         total = sum(scores.values())
         if total > 0:
             dist = {k: round(v/total, 2) for k, v in scores.items()}

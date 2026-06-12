@@ -3,7 +3,6 @@ Unit tests for clustering.py using pytest.
 Tests the CulturalTrendClusterer.
 """
 
-import pytest
 from clustering import CulturalTrendClusterer
 
 

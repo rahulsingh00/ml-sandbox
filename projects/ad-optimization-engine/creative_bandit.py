@@ -4,7 +4,7 @@ Implements a Thompson Sampling Multi-Armed Bandit (MAB) algorithm
 to dynamically optimize selection of ad creatives based on click performance.
 """
 
-from typing import List, Tuple
+from typing import List
 import numpy as np
 
 

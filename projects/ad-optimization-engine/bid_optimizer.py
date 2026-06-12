@@ -38,11 +38,12 @@ class BidOptimizer:
         """
         Solves for the optimal bid b* that maximizes expected utility.
         """
-        # We minimize the negative expected utility
-        objective = lambda b: -self.expected_utility(b, value)
+        def objective(b):
+            return -self.expected_utility(b, value)
         
         # Bounds: bid must be between 0 and the actual value of impression
         res = minimize_scalar(objective, bounds=(0, value), method='bounded')
+
         
         if res.success:
             return float(res.x)

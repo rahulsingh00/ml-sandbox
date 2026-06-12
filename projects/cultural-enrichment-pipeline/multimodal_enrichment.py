@@ -69,7 +69,7 @@ class MultimodalEnrichmentPipeline:
                 # L2 normalize
                 image_features /= image_features.norm(dim=-1, keepdim=True)
                 return image_features.cpu().numpy()[0]
-            except Exception as e:
+            except Exception:
                 # Fall back to mock on error
                 pass
 
@@ -115,7 +115,7 @@ class MultimodalEnrichmentPipeline:
             similarity = float(np.dot(img_emb, txt_emb))
             scores[label] = round(similarity, 4)
             
-        max_label = max(scores, key=scores.get)
+        max_label = max(scores, key=lambda k: scores[k])
         is_safe = max_label == "safe environment"
         
         return {
@@ -143,7 +143,7 @@ class MultimodalEnrichmentPipeline:
                     os.makedirs(parent_dir, exist_ok=True)
                 
                 # Write a short 20-frame (2 second at 10 fps) mp4 video
-                fourcc = cv2.VideoWriter_fourcc(*'mp4v')
+                fourcc = getattr(cv2, "VideoWriter_fourcc")(*'mp4v')
                 out = cv2.VideoWriter(video_path, fourcc, 10.0, (224, 224))
                 for i in range(20):
                     # Draw simple geometric patterns
@@ -190,7 +190,7 @@ class MultimodalEnrichmentPipeline:
                             
                     frame_count += 1
                 cap.release()
-        except Exception as e:
+        except Exception:
             # print(f"OpenCV processing error: {e}")
             pass
 
@@ -212,7 +212,7 @@ class MultimodalEnrichmentPipeline:
             similarity = float(np.dot(mean_emb, txt_emb))
             scores[label] = round(similarity, 4)
             
-        max_label = max(scores, key=scores.get)
+        max_label = max(scores, key=lambda k: scores[k])
         is_safe = max_label == "safe environment"
         
         return {

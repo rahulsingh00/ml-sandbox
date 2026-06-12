@@ -4,8 +4,7 @@ Demonstrates representation learning and unsupervised clustering (K-Means)
 to discover emerging cultural trends from unstructured social records.
 """
 
-from typing import List, Dict, Any
-import numpy as np
+from typing import List, Dict
 from sklearn.cluster import KMeans
 from sklearn.feature_extraction.text import TfidfVectorizer
 
@@ -56,7 +55,7 @@ if __name__ == "__main__":
     print(f"Total documents analyzed: {len(social_posts)}\n")
     
     # Print grouped results
-    grouped_posts = {i: [] for i in range(3)}
+    grouped_posts: Dict[int, List[str]] = {i: [] for i in range(3)}
     for post, cluster_id in zip(social_posts, assignments):
         grouped_posts[cluster_id].append(post)
         

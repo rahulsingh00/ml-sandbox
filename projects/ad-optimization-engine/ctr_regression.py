@@ -4,7 +4,7 @@ Implements Gradient Boosting Regressor for continuous-value CTR prediction.
 Demonstrates training data extraction with a Snowflake integration stub and local fallback.
 """
 
-from typing import Dict, Any, Tuple
+from typing import Dict, Any, Tuple, Optional
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
@@ -78,7 +78,7 @@ class CTRPredictor:
         df["actual_ctr"] = np.clip(ctr, 0.0001, 0.20)
         return df
 
-    def load_training_data_from_snowflake(self, connection_params: Dict[str, Any] = None) -> pd.DataFrame:
+    def load_training_data_from_snowflake(self, connection_params: Optional[Dict[str, Any]] = None) -> pd.DataFrame:
         """
         Extracts training data from Snowflake tables.
         Demonstrates the production Snowflake integration pattern.
@@ -110,7 +110,7 @@ class CTRPredictor:
             
         return self.generate_synthetic_data(num_samples=1500)
 
-    def preprocess_data(self, df: pd.DataFrame, is_training: bool = True) -> Tuple[pd.DataFrame, np.ndarray]:
+    def preprocess_data(self, df: pd.DataFrame, is_training: bool = True) -> Tuple[pd.DataFrame, Optional[np.ndarray]]:
         """
         One-hot encodes categorical columns and aligns columns for training/prediction.
         """
@@ -201,5 +201,5 @@ if __name__ == "__main__":
     
     pred_ctr = predictor.predict(sample_request)[0]
     print("Sample Inference:")
-    print(f"  Input Features: Mobile, Rewarded Video, hour=20, hist_ctr=2.5%")
+    print("  Input Features: Mobile, Rewarded Video, hour=20, hist_ctr=2.5%")
     print(f"  Predicted CTR: {pred_ctr:.4f} ({pred_ctr * 100:.2f}%)")
